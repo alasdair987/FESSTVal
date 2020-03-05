@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import json
-
+import dj_database_url
 
 from django.core.exceptions import ImproperlyConfigured
 
@@ -54,6 +54,11 @@ def get_env_var(setting, configs=configs):
      raise ImproperlyConfigured(error_msg)#get secret key
 
 SECRET_KEY = get_env_var("SECRET_KEY")
+DEBUG = get_env_var("DEBUG")
+
+DATABASES = {
+    'default': dj_database_url.config(default=get_env_var("DATABASE_URL"))
+}
 
 
 # Application definition
