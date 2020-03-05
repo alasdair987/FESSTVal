@@ -1,0 +1,137 @@
+<html>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 2px solid rgb(255, 255, 255);
+        }
+    </style>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="homepage" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+            <title>{% block title %}Uni_App{% endblock %}</title>
+            <script src=" https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+            </script>
+    </head>
+
+    <body>
+        {% block Authenticat %}
+        {% if user.is_authenticated %}
+        <div id="logo-pic">
+
+        </div>
+        <nav>
+            <div class="logo">
+                <h5>Navigation</h5>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
+                <li><a href="{% url 'device-list' %}">Device List</a></li>
+                <li><a href="{% url 'Maintenance' %}">Maintenance</a></li>
+                <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
+                {% block Logout_Content %}
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'login' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+                {% endif %}
+                {% endblock %}
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        {% else %}
+        <nav>
+            <div class="logo">
+                <h5>Navigation</h5>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        {% endif %}
+        {% endblock %}
+
+        {% block Authenticat2 %}
+        {% if user.is_authenticated %}
+        <div class="headline">
+            <h7>
+                Durchgeführte Wartungen
+            </h7>
+        </div>
+        <div class="content">
+            <table>
+                <tr>
+                    <!--<th> Device ID</th>-->
+                    <th> Gerät </th>
+                    <th> Zeitpunkt </th>
+                    <th> Attribut 1 </th>
+                    <th> Attribut 2 </th>
+                    <th> Attribut 3 </th>
+                    <th> File </th>
+                    <th> Description </th>
+                </tr>
+                {% for item in maintenance %}
+                <tr>
+                    <!--<td>
+                    {{ item.device_id }}
+                </td>-->
+                    <td>
+                        <a href="{% url "maintenance-detail" id=item.id %}">{{ item.devices }}</a>
+                    </td>
+                    <td>
+                        {{ item.timestamp }}
+                    </td>
+                    <td>
+                        {{ item.attribute1 }}
+                    </td>
+                    <td>
+                        {{ item.attribute2 }}
+                    </td>
+
+                    <td>
+                        {{ item.attribute3 }}
+                    </td>
+
+                    <td>
+                        {{ item.files }}
+                    </td>
+
+                    <td>
+                        {{ item.description }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% else %}
+        <div class="Login-Warning">
+            <p>
+                You are not logged in!
+            </p>
+        </div>
+        {% endif %}
+        {% endblock %}
+        <script src="{% static 'js/app.js' %}"></script>
+
+    </body>
+
+</html>

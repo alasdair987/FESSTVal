@@ -1,0 +1,265 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    /* background-color: #F7F7F7; */
+
+}
+
+body{
+    background-color: #F0F0F0;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: rgb(241, 215, 176);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.logo{
+
+    text-transform: uppercase;
+    color: #3a3a3a;
+    letter-spacing: 4px;
+    font-size: 26px;
+    background-color:rgb(241, 215, 176);
+}
+
+.logo h5{
+    background-color: rgb(241, 215, 176);
+}
+
+#logo-pic {
+
+    background-image: url('media/landscape.jpg');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    min-height: 15em;
+
+}
+
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    background-color: rgb(241, 215, 176);
+}
+
+.nav-links ul{
+    background-color: rgb(241, 215, 176);
+}
+
+.nav-links a{
+    color: #3a3a3a;
+    text-decoration: none;
+    letter-spacing: 0.2px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: rgb(241, 215, 176);
+}
+
+.nav-links li{
+    list-style: none;
+    background-color: none;
+}
+
+.headline{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.content{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: auto;
+    height: 600px;
+    margin: 5%;
+}
+
+.device_form_input{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    margin-left: 0%;
+}
+
+.device_form_selection{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.device_form_upload{
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    margin-left: 0%;
+
+}
+
+.Login-Warning p{
+    justify-content: center;
+    color: #3a3a3a;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.startpage {
+  width: 360px;
+  padding: auto;
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+div.Logout-Button{
+    position: absolute;
+    left: 1800px;
+    bottom: 860px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.Logout-Button:hover{
+    text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+div.Logout-Button2{
+    position: relative;
+    left: 900px;
+    bottom: 120px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.Reg-Button{
+    position: relative;
+    bottom: -150px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+p.Greetings{
+    position: relative;
+    bottom: 10px;
+    font-size: 45px;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.Greetings2 h{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.headline{
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-table-content{
+    position: absolute;
+    top: 350px;
+    bottom: 0px;
+    right: 700px;
+    left: 700px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+.burger{
+    display: none;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 4px;
+    background-color: #3a3a3a;
+    margin: 5px;
+
+}
+
+h1{
+    position: relative;
+    bottom: 300px;
+    color: black;
+    font-size: 35px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+table, tr, th{
+    border: 1.5px solid black;
+    font-family: 'Montserrat', sans-serif;
+    height: 33%;
+}
+
+table td{
+    border: 1.5px solid black;
+    width: 20%;
+}
+
+
+
+
+
+/* @media screen and (max-width:1024px){
+    .nav-links{
+        width: 80px;
+    }
+} */
+
+@media screen and (max-width:1024px){
+     body{
+        overflow-x: hidden;
+    }
+
+    .nav-links{
+         position: absolute;
+         right: 0;
+         height: 65vh;
+         top: 36%;
+         background-color: rgb(241, 215, 176);
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         width: 20%;
+         transform: translateX(100%);
+         transition: transform 0.3s ease-in;
+    }
+    .nav-links li{
+        opacity: 100;
+    }
+    .burger{
+        display: block;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

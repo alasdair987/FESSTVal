@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="homepage" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+                <title>{% block title %}Startseite CEN-IT Sommerprojekt{% endblock %}</title>
+    </head>
+
+    <body>
+        {% block Authenticat %}
+        {% if user.is_authenticated %}
+        <div id="logo-pic">
+
+        </div>
+        <nav>
+            <div class="logo">
+                <h5>Navigation</h5>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
+                <li><a href="{% url 'device-list' %}">Device List</a></li>
+                <li><a href="{% url 'Maintenance' %}">Maintenance</a></li>
+                <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
+                {% block Logout_Content %}
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'login' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+                {% endif %}
+                {% endblock %}
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        {% else %}
+        <nav>
+            <div class="logo">
+                <h5>Navigation</h5>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        {% endif %}
+        {% endblock %}
+        <div class=" startpage">
+
+
+        <div>
+            {% block Logout_Content2 %}
+            {% if user.is_authenticated %}
+            <div class="Greetings2">
+                <h> Maintenance </h>
+            </div>
+
+            {% else %}
+            <div class="Login-Warning">
+                <p>
+                    You are not logged in!
+                </p>
+            </div>
+            {% endif %}
+            {% endblock %}
+        </div>
+        {% block Authenticat2 %}
+        {% if user.is_authenticated %}
+        <div class="content">
+            <form method="POST" action='' enctype='multipart/form-data'>
+                {% csrf_token %}
+                {{ maintenance_form.as_p }}
+                <input type="submit" value="Send">
+                <!--<p> Device ID</p>
+                        <input id="device_id" type="text">
+                        <p> Device Name</p>
+                        <input id="device_name" type="text">
+                        <p> Device Type</p>
+                        <input id="device_type" type="text">-->
+
+            </form>
+        </div>
+        </div>
+        {% endif %}
+        {% endblock %}
+
+        <script src="{% static 'js/app.js' %}"></script>
+    </body>
+
+
+
+
+</html>

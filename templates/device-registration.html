@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html>
+
+    <!-- <style>
+        table,
+        td {
+            border: 100px solid rgb(255, 255, 255);
+        }
+    </style> -->
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="homepage" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+            <title>{% block title %}Uni_App{% endblock %}</title>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </head>
+
+
+    <body>
+        {% block Authenticat %}
+        {% if user.is_authenticated %}
+        <div id="logo-pic">
+
+        </div>
+        <nav>
+            <div class="logo">
+                <h5>Navigation</h5>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
+                <li><a href="{% url 'device-list' %}">Device List</a></li>
+                <li><a href="{% url 'Maintenance' %}">Maintenance</a></li>
+                <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
+                {% block Logout_Content %}
+                {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'login' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{% url 'login' %}">Login</a>
+                </li>
+                {% endif %}
+                {% endblock %}
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        {% else %}
+        <nav>
+            <div class="logo">
+                <h5>Navigation</h5>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'login' %}">Login</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+        {% endif %}
+        {% endblock %}
+        <div>
+            {% block Logout_Content2 %}
+            {% if user.is_authenticated %}
+            <div class="Greetings2">
+            <h>Gerät registrieren </h>
+            </div>
+            {% else %}
+            <div class="Login-Warning">
+                <p>
+                    You are not logged in!
+                </p>
+            </div>
+            {% endif %}
+            {% endblock %}
+        </div>
+
+
+
+    <!--<div class="form-table-content">
+    <font size=6> Alle registrierten Geräte</font>
+        <table>
+            <tr>
+                <th> Device Name</th>
+                <th> Device Type</th>
+                <th> Device User </th>
+                <th> Registerdate</th>
+            </tr>
+            {% for item in devices %}
+            <tr>
+                <td>
+                    {{ item.device_name }}
+                </td>
+                <td>
+                    {{ item.device_type }}
+                </td>
+                <td>
+                    {{ item.device_user }}
+                </td>
+                <td>
+                    {{ item.register_date }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div> -->
+        {% block Authenticat2 %}
+        {% if user.is_authenticated %}
+
+        <div class="content">
+        <form method="POST">
+            {% csrf_token %}
+            {{ Form.as_table }}
+            <input type="submit" value="Send">
+            <!--<p> Device ID</p>
+                    <input id="device_id" type="text">
+                    <p> Device Name</p>
+                    <input id="device_name" type="text">
+                    <p> Device Type</p>
+                    <input id="device_type" type="text">-->
+
+            </form>
+        <!-- <button onclick="add_device()">Add Device</button> -->
+        </div>
+        {% endif %}
+        {% endblock %}
+
+
+    <!--<div class="device_list">
+
+    </div>--<
+
+    <!--<form id="device_form" action="/device_registration/" method="post">
+        {% csrf_token %}
+        {{ Form.as_p }}
+        <input type="submit" value="Register">
+    </form>-->
+
+        <script src="{% static 'js/app.js' %}"></script>
+    </body>
+
+</html>
+
+<script>
+    get_device_list()
+    function get_device_list() {
+            var post_data = {
+                "csrfmiddlewaretoken": "{{ csrf_token }}",
+                "sort": "register_date",
+                "sort_type": "desc"
+            };
+            $.post("/device_registration/", post_data, function (data) {
+                $(".device_registration").html(data);
+            });
+        }
+     function add_device() {
+            var post_data = {
+                "csrfmiddlewaretoken": "{{ csrf_token }}",
+                "add" : "1",
+                "device_id":  $("#id_device_id").val(),
+                "device_name": $("#id_device_name").val(),
+                "device_type":  $("#id_device_type").val(),
+                "device_user": $("#id_device_user").val(),
+            };
+            $.post("/device_registration/", post_data, function (data) {
+                $(".device_registration").html(data);
+                console.log(data)
+            });
+        }
+
+</script>
