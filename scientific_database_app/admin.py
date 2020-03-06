@@ -8,7 +8,7 @@ from import_export.admin import ImportExportModelAdmin
 
 # Register your models here.
 
-from .models import Student, Professor, Device, Maintenance
+from .models import Student, Professor, Device, Maintenance, Networks
 
 
 class Student_Admin(admin.ModelAdmin):
@@ -36,13 +36,23 @@ class Device_Admin(ImportExportModelAdmin):
 
 admin.site.register(Device, Device_Admin)
 
+
 class Maintenance_Admin(ImportExportModelAdmin):
     model = Maintenance
-    list_display = ('devices', 'description',
-                    'timestamp', 'attribute1', 'attribute2', 'attribute3')
+    list_display = ('networks', 'description',
+                    'timestamp', 'On-site maintenance?', 'Condition before maintenance', 'Condition after maintenance')
 
     pass
 
 
-
 admin.site.register(Maintenance, Maintenance_Admin)
+
+class Networks_Admin(ImportExportModelAdmin):
+    model = Networks
+    list_display = ('network_name', 'annotation1',
+                    'annotation2', 'annotation3')
+
+    pass
+
+
+admin.site.register(Networks, Networks_Admin)

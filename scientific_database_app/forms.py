@@ -1,8 +1,16 @@
 from pprint import pprint
+from django import  forms
 
 from django.forms import ModelForm
 
 from .models import Device, Maintenance
+
+# Choices for Maintenance Dropdowns
+
+VOR_ORT_CHOICES= [
+    ('ja', 'Ja'),
+    ('nein', 'Nein'),
+    ]
 
 
 class DeviceForm(ModelForm):
@@ -27,28 +35,28 @@ class DeviceForm(ModelForm):
         #     'placeholder': 'myCustomPlaceholder'})
 
 
-
 class MaintenanceForm(ModelForm):
     class Meta:
         model = Maintenance
         fields = [
-            'devices',
-            'attribute1',
-            'attribute2',
-            'attribute3',
+            'networks',
+            'On-site maintenance?',
+            'Condition before maintenance',
+            'Condition after maintenance',
             'description',
-            'files']
+            'files',
+        ]
+
 
     def __init__(self, *args, **kwargs):
         super(MaintenanceForm, self).__init__(*args, **kwargs)
-        self.fields['devices'].widget.attrs["class"] = "device_form_input"
-        self.fields['attribute1'].widget.attrs["class"] = "device_form_attribute"
-        self.fields['attribute2'].widget.attrs["class"] = "device_form_attribute"
-        self.fields['attribute3'].widget.attrs["class"] = "device_form_attribute"
+        self.fields['networks'].widget.attrs["class"] = "device_form_input"
+        self.fields['On-site maintenance?'].widget.attrs["class"] = "device_form_choice1"
+        self.fields['Condition before maintenance'].widget.attrs["class"] = "device_form_choice2"
+        self.fields['Condition after maintenance'].widget.attrs["class"] = "device_form_choice3"
         self.fields['description'].widget.attrs["class"] = "device_form_input"
         self.fields['files'].widget.attrs["class"] = "device_form_upload"
     #     _devices = forms.ModelMultipleChoiceField(queryset = None, required=False, widget=forms.SelectMultiple)
-
 
     # def __init__(self, *args, **kwargs):
     #     super(MaintenanceForm, self).__init__()

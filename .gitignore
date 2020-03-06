@@ -1,0 +1,21 @@
+# Created by .ignore support plugin (hsz.mobi)
+database_webapp/__pycache__/
+scientific_database_app/__pycache__/__init__.cpython-36.pyc
+scientific_database_app/__pycache__/admin.cpython-36.pyc
+scientific_database_app/__pycache__/forms.cpython-36.pyc
+scientific_database_app/__pycache__/models.cpython-36.pyc
+scientific_database_app/__pycache__/views.cpython-36.pyc
+scientific_database_app/migrations/0002_networks.py
+scientific_database_app/migrations/0003_auto_20200306_1407.py
+scientific_database_app/migrations/0004_auto_20200306_1417.py
+scientific_database_app/migrations/0005_maintenance_vor_ort.py
+scientific_database_app/migrations/0006_remove_maintenance_vor_ort.py
+scientific_database_app/migrations/0007_maintenance_choice1.py
+scientific_database_app/migrations/0008_auto_20200306_1612.py
+scientific_database_app/migrations/0009_auto_20200306_1615.py
+scientific_database_app/migrations/0010_auto_20200306_1624.py
+scientific_database_app/migrations/0011_auto_20200306_1630.py
+scientific_database_app/migrations/__pycache__/
+!/database_webapp/settings.py
+!/db.sqlite3
+!/db.json

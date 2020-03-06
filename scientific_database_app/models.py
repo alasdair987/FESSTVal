@@ -26,6 +26,16 @@ class Professor(models.Model):
     u_number = models.IntegerField()
 
 
+class Networks(models.Model):
+    network_name = models.CharField(max_length=30)
+    annotation1 = models.CharField(max_length=30)
+    annotation2 = models.CharField(max_length=30)
+    annotation3 = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.network_name
+
+
 class Device(models.Model):
     # device_id = models.IntegerField()
     device_name = models.CharField(max_length=30)
@@ -38,13 +48,19 @@ class Device(models.Model):
 
 
 class Maintenance(models.Model):
-    devices = models.ForeignKey(Device, on_delete=models.CASCADE, default=None)
+    networks = models.ForeignKey(Networks, on_delete=models.CASCADE, default=None)
     description = models.TextField()
     timestamp = models.DateTimeField()
-    attribute1 = models.BooleanField()
-    attribute2 = models.BooleanField()
-    attribute3 = models.BooleanField()
+    choice1 = models.CharField(name='On-site maintenance?', max_length=30, default='No', choices=[('yes', 'Yes'), ('no', 'No')])
+    choice2 = models.CharField(name='Condition before maintenance', max_length=30, default='Active', choices=[('active', 'Active'), ('inactive', 'Inactive'),
+                                                                         ('malfunction', 'Malfunction')])
+    choice3 = models.CharField(name='Condition after maintenance', max_length=30, default='Active', choices=[('active', 'Active'), ('active_with_problems',
+                                                                          'Active with Problems'), ('inactive',
+                                                                                                    'Inactive')])
     files = models.FileField(null=True, blank=True)
 
     def get_absolute_url(self):
         return "/maintenance-detail/%i" % self.id
+
+
+
