@@ -2,18 +2,11 @@
 
 <html>
 
-    <style>
-        table,
-        th,
-        td {
-            border: 2px solid rgb(255, 255, 255);
-        }
-    </style>
-
     <head>
         <meta charset="utf-8">
         <meta name="homepage" content="width=device-width, initial-scale=1.0" />
         {% load static %}
+        {% load render_table from django_tables2 %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
             <title>FESSTVaL Maintenance Protocol</title>
@@ -81,50 +74,8 @@
                 Maintenances
             </h7>
         </div>
-        <div class="content">
-            <table class="maintenance-table-content">
-                <tr>
-                    <!--<th> Device ID</th>-->
-                    <th> Timestamp </th>
-                    <th> Network </th>
-                    <th> On-side? </th>
-                    <th> Condition before </th>
-                    <th> Condition after </th>
-                    <th> File </th>
-                    <th> Description </th>
-                </tr>
-                {% for item in maintenance %}
-                <tr>
-                    <!--<td>
-                    {{ item.timestamp }}
-                </td>-->
-                    <td>
-                        <a href="{% url "maintenance-detail" id=item.id %}">{{ item.devices }}</a>
-                    </td>
-                    <td>
-                        {{ item.networks }}
-                    </td>
-                    <td>
-                        {{ item.choice1 }}
-                    </td>
-                    <td>
-                        {{ item.choice2 }}
-                    </td>
-
-                    <td>
-                        {{ item.choice3 }}
-                    </td>
-
-                    <td>
-                        {{ item.files }}
-                    </td>
-
-                    <td>
-                        {{ item.description }}
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
+        <div class="maintenance-table-content">
+            {% render_table table  %}
         </div>
         {% else %}
         <div class="Login-Warning">

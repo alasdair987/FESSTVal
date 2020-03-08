@@ -4,7 +4,8 @@ from django.shortcuts import render
 
 from datetime import datetime
 from pprint import pprint
-
+from django_tables2 import RequestConfig
+from .tables import DeviceTable, MaintenanceTable
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -31,9 +32,7 @@ def device_registration(request):
 
         if form.is_valid():
             pprint(request.POST)
-            pprint(form.cleaned_data)
             device = form.save(commit=False)
-            device.register_date = datetime.now()
             device.save()
             return RegDevices(request)
         else:
@@ -43,17 +42,8 @@ def device_registration(request):
         form = DeviceForm()
 
     # c = Context({'object_list': devices})
-    args = {'Form': form, 'devices': devices}
+    args = {'device_form': form, 'devices': devices}
     return render(request, 'device-registration.html', args)
-
-
-def RegDevices(request):
-    devices = Device.objects.all()
-    # x = loader.get_template('/home/alasdair/Code/Python_Projects/templates/device-list.html')
-    # c = Context({'object_list': devices})
-    # return HttpResponse(x.render(c.flatten()))
-    args = {'devices': devices}
-    return render(request, 'device-list.html', args)
 
 
 def AddMaintenance(request):
@@ -61,7 +51,6 @@ def AddMaintenance(request):
         maintenance_form = MaintenanceForm(request.POST or None, request.FILES or None)
         if maintenance_form.is_valid():
             m1 = maintenance_form.save(commit=False)
-            m1.timestamp = datetime.today()
             m1.save()
             messages.success(request, "Successfully created a Maintenance!")
             return HttpResponseRedirect('/maintenance-list/')
@@ -78,7 +67,6 @@ def AddMeasurement(request):
         measurement_form = MeasurementForm(request.POST or None, request.FILES or None)
         if measurement_form.is_valid():
             m2 = measurement_form.save(commit=False)
-            m2.timestamp = datetime.today()
             m2.save()
             messages.success(request, "Successfully created a Maintenance!")
             return HttpResponseRedirect('/maintenance-list/')
@@ -90,12 +78,30 @@ def AddMeasurement(request):
     return render(request, 'measurement.html', {'measurement_form': measurement_form})
 
 
+def RegDevices(request):
+    table = DeviceTable(Device.objects.all())
+    RequestConfig(request).configure(table)
+    table.paginate(page=request.GET.get("page", 1), per_page=5)
+
+    #args = {'maintenance': maintenance}
+
+    return render(request, 'device-list.html', {"table": table})
+
+
+# class DeviceListView(SingleTableView):
+#     model = Device
+#     table_class = DeviceTable
+#     template_name = 'device-list.html'
+
+
 def MaintenanceList(request):
-    maintenance = Maintenance.objects.all()
+    table = MaintenanceTable(Maintenance.objects.all())
+    RequestConfig(request).configure(table)
+    table.paginate(page=request.GET.get("page", 1), per_page=5)
 
-    args = {'maintenance': maintenance}
+    #args = {'maintenance': maintenance}
 
-    return render(request, 'maintenance-list.html', args)
+    return render(request, 'maintenance-list.html', {"table": table})
 
 
 def MaintenanceDetail(request, id=None):

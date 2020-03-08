@@ -41,7 +41,7 @@ class Device(models.Model):
     device_name = models.CharField(verbose_name="Name", default="Device Name", max_length=30)
     device_type = models.CharField(verbose_name="Type", default="Device Type", max_length=30)
     device_user = models.ForeignKey(Student, on_delete=models.CASCADE, default=None, verbose_name="User",)
-    register_date = models.DateTimeField()
+    register_date = models.DateTimeField(verbose_name="Timestamp")
 
     def __str__(self):
         return self.device_name
@@ -50,11 +50,11 @@ class Device(models.Model):
 class Maintenance(models.Model):
     networks = models.ForeignKey(Networks, on_delete=models.CASCADE, default=None)
     description = models.TextField(default='Type your Description in here.')
-    timestamp = models.DateTimeField(verbose_name="")
-    choice1 = models.CharField(verbose_name='On-site maintenance?', max_length=30, default='No', choices=[('yes', 'Yes'), ('no', 'No')])
-    choice2 = models.CharField(verbose_name='Condition before maintenance', max_length=30, default='Active', choices=[('active', 'Active'), ('inactive', 'Inactive'),
+    timestamp = models.DateTimeField(verbose_name="Timestamp")
+    choice1 = models.CharField(verbose_name='On-site?', max_length=30, default='No', choices=[('yes', 'Yes'), ('no', 'No')])
+    choice2 = models.CharField(verbose_name='Condition before', max_length=30, default='Active', choices=[('active', 'Active'), ('inactive', 'Inactive'),
                                                                          ('malfunction', 'Malfunction')])
-    choice3 = models.CharField(verbose_name='Condition after maintenance', max_length=30, default='Active', choices=[('active', 'Active'), ('active_with_problems',
+    choice3 = models.CharField(verbose_name='Condition after', max_length=30, default='Active', choices=[('active', 'Active'), ('active_with_problems',
                                                                           'Active with Problems'), ('inactive',
                                                                                                     'Inactive')])
     files = models.FileField(null=True, blank=True)
@@ -70,5 +70,5 @@ class Measurement(models.Model):
     location_description = models.TextField(default='Type your Description in here.')
     position = models.CharField(max_length=30)
     files = models.FileField(null=True, blank=True)
-    timestamp = models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(verbose_name="Timestamp")
 

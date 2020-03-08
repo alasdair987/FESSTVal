@@ -83,10 +83,8 @@
         <div class="content">
             <form class="measurement_form" method="POST" action='' enctype='multipart/form-data'>
                 {% csrf_token %}
-                {% bootstrap_form measurement_form%}
-                {% block extrahead %}
-                {{ form.media }}
-                {% endblock %}
+                {{ measurement_form.media }}
+                {% bootstrap_form measurement_form %}
                 <input type="submit" value="Send">
                 <!--<p> Device ID</p>
                         <input id="device_id" type="text">

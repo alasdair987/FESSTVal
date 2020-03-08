@@ -19,8 +19,6 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
             <title>FESSTVaL Maintenance Protocol</title>
-            <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-                integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     </head>
 
 
@@ -126,7 +124,8 @@
         <div class="content">
         <form class='device_form' method="POST">
             {% csrf_token %}
-            {% bootstrap_form Form %}
+            {{ device_form.media }}
+            {% bootstrap_form device_form %}
             <input type="submit" value="Send">
             <!--<p> Device ID</p>
                     <input id="device_id" type="text">

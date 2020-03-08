@@ -90,10 +90,8 @@
         <div class="content">
             <form class="maintenance_form" method="POST" action='' enctype='multipart/form-data'>
                 {% csrf_token %}
+                {{ maintenance_form.media }}
                 {% bootstrap_form maintenance_form %}
-                {% block extrahead %}
-                {{ form.media }}
-                {% endblock %}
                 <input type="submit" value="Send">
                 <!--<p> Device ID</p>
                         <input id="device_id" type="text">

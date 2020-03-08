@@ -2,17 +2,10 @@
 
 <html>
 
-    <style>
-        table,
-        th,
-        td {
-            border: 2px solid rgb(255, 255, 255);
-        }
-    </style>
-
     <head>
         <meta charset="utf-8">
         {% load static %}
+        {% load render_table from django_tables2 %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
         <title>FESSTVaL Maintenance Protocol</title>
@@ -77,35 +70,8 @@
                 Devices
             </h7>
         </div>
-        <div class="content">
-            <table class="device-table-content">
-                <tr>
-                    <!--<th> Device ID</th>-->
-                    <th> Device Name</th>
-                    <th> Device Type</th>
-                    <th> Device User </th>
-                    <th> Registerdate</th>
-                </tr>
-                {% for item in devices %}
-                <tr>
-                    <!--<td>
-                        {{ item.device_id }}
-                    </td>-->
-                    <td>
-                        {{ item.device_name }}
-                    </td>
-                    <td>
-                        {{ item.device_type }}
-                    </td>
-                    <td>
-                        {{ item.device_user }}
-                    </td>
-                    <td>
-                        {{ item.register_date }}
-                    </td>
-                </tr>
-                {% endfor %}
-            </table>
+        <div class="device-table-content">
+            {% render_table table %}
         </div>
         {% else %}
         <div class="Login-Warning">
