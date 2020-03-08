@@ -15,6 +15,7 @@
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <title>FESSTVaL Maintenance Protocol</title>
     </head>
 
     <body>
@@ -29,10 +30,11 @@
             </div>
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
-                <li><a href="{% url 'device-list' %}">Device List</a></li>
                 <li><a href="{% url 'maintenance' %}">Maintenance</a></li>
+                <li><a href="{% url 'measurement' %}">Measurement</a></li>
+                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
                 <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
+                <li><a href="{% url 'device-list' %}">Device List</a></li>
                 {% block Logout_Content %}
                 {% if user.is_authenticated %}
                 <li>
@@ -72,11 +74,11 @@
         {% if user.is_authenticated %}
         <div class="headline">
             <h7>
-                Registrierte Geräte
+                Devices
             </h7>
         </div>
         <div class="content">
-            <table class="table-content">
+            <table class="device-table-content">
                 <tr>
                     <!--<th> Device ID</th>-->
                     <th> Device Name</th>

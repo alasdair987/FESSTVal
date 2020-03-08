@@ -10,7 +10,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.template import Context, loader
 
-from .forms import DeviceForm, MaintenanceForm
+from bootstrap_datepicker_plus import DateTimePickerInput
+from django.forms import Widget
+from .forms import DeviceForm, MaintenanceForm, MeasurementForm
 from .models import Student, Device, Maintenance
 
 
@@ -28,7 +30,6 @@ def device_registration(request):
         form = DeviceForm(request.POST)
 
         if form.is_valid():
-            pprint("Test1")
             pprint(request.POST)
             pprint(form.cleaned_data)
             device = form.save(commit=False)
@@ -39,12 +40,10 @@ def device_registration(request):
             pprint("Invalid Form")
             return HttpResponse("Invalid form")
     else:
-        pprint("Test3")
         form = DeviceForm()
 
     # c = Context({'object_list': devices})
     args = {'Form': form, 'devices': devices}
-    pprint("Test4")
     return render(request, 'device-registration.html', args)
 
 
@@ -59,24 +58,36 @@ def RegDevices(request):
 
 def AddMaintenance(request):
     if request.method == 'POST':
-        pprint("Test")
         maintenance_form = MaintenanceForm(request.POST or None, request.FILES or None)
-        pprint("Test2")
         if maintenance_form.is_valid():
             m1 = maintenance_form.save(commit=False)
             m1.timestamp = datetime.today()
             m1.save()
-            pprint("Test4")
             messages.success(request, "Successfully created a Maintenance!")
             return HttpResponseRedirect('/maintenance-list/')
         else:
             HttpResponse("Invalid Form")
 
     else:
-        pprint("Test5")
         maintenance_form = MaintenanceForm()
-    pprint("Test3")
     return render(request, 'maintenance.html', {'maintenance_form': maintenance_form})
+
+
+def AddMeasurement(request):
+    if request.method == 'POST':
+        measurement_form = MeasurementForm(request.POST or None, request.FILES or None)
+        if measurement_form.is_valid():
+            m2 = measurement_form.save(commit=False)
+            m2.timestamp = datetime.today()
+            m2.save()
+            messages.success(request, "Successfully created a Maintenance!")
+            return HttpResponseRedirect('/maintenance-list/')
+        else:
+            HttpResponse("Invalid Form")
+
+    else:
+        measurement_form = MeasurementForm()
+    return render(request, 'measurement.html', {'measurement_form': measurement_form})
 
 
 def MaintenanceList(request):

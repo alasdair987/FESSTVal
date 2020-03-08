@@ -36,6 +36,7 @@ urlpatterns = [
     path('device_registration/', views.device_registration, name='device_registration'),
     path('device-list/', views.RegDevices, name='device-list'),
     path('maintenance/', views.AddMaintenance, name='maintenance'),
+    path('measurement/', views.AddMeasurement, name='measurement'),
     path('maintenance-list/', views.MaintenanceList, name='maintenance-list'),
     path(r'^maintenance-detail/(?P<id>\d+)/$', views.MaintenanceDetail, name='maintenance-detail'),
     path('account/', include('django.contrib.auth.urls'), name='user_login'),

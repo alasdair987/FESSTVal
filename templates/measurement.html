@@ -1,23 +1,17 @@
-<!doctype html>
-
-<html>
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="homepage" content="width=device-width, initial-scale=1.0" />
-        {% load static %}
-        {% load bootstrap4 %}
-        {% bootstrap_css %}
-        {% bootstrap_javascript jquery='full' %}
-
-
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-                <title>FESSTVaL Maintenance Protocol</title>
-    </head>
-
-    <body>
-        {% block Authenticat %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    <title>FESSTVaL Maintenance Protocol</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+      {% block Authenticat %}
         {% if user.is_authenticated %}
         <div id="logo-pic">
 
@@ -68,12 +62,11 @@
         {% endif %}
         {% endblock %}
 
-
         <div>
             {% block Logout_Content2 %}
             {% if user.is_authenticated %}
             <div class="headline">
-                <h> Maintenance </h>
+                <h> Measurement </h>
             </div>
 
             {% else %}
@@ -88,9 +81,9 @@
         {% block Authenticat2 %}
         {% if user.is_authenticated %}
         <div class="content">
-            <form class="maintenance_form" method="POST" action='' enctype='multipart/form-data'>
+            <form class="measurement_form" method="POST" action='' enctype='multipart/form-data'>
                 {% csrf_token %}
-                {% bootstrap_form maintenance_form %}
+                {% bootstrap_form measurement_form%}
                 {% block extrahead %}
                 {{ form.media }}
                 {% endblock %}
@@ -106,7 +99,5 @@
         </div>
         {% endif %}
         {% endblock %}
-
-
-    </body>
+</body>
 </html>

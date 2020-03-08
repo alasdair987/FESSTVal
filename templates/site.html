@@ -42,10 +42,11 @@
             </div>
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'device_registration' %}">Device-Registration</a></li>
-                <li><a href="{% url 'device-list' %}">Device-List</a></li>
-                <li><a href="{% url 'Maintenance' %}">Maintenance</a></li>
-                <li><a href="{% url 'maintenance-list' %}">Maintenance-List</a></li>
+                <li><a href="{% url 'maintenance' %}">Maintenance</a></li>
+                <li><a href="{% url 'measurement' %}">Measurement</a></li>
+                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
+                <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
+                <li><a href="{% url 'device-list' %}">Device List</a></li>
                 {% block Logout_Content %}
                 {% if user.is_authenticated %}
                 <li>
@@ -98,6 +99,11 @@
                 {% endif %}
                 {% endblock %}
             </div>
+        </div>
+        <div class="contact">
+            <p>
+                If you have trouble using this website please contact: alasdair.grimm@uni-hamburg.de
+            </p>
         </div>
 
         <script src="{% static 'js/app.js' %}"></script>

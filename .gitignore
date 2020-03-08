@@ -19,3 +19,4 @@ scientific_database_app/migrations/__pycache__/
 !/database_webapp/settings.py
 !/db.sqlite3
 !/db.json
+/venv/

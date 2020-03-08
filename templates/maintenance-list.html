@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
 
     <style>
@@ -13,7 +15,8 @@
         <meta name="homepage" content="width=device-width, initial-scale=1.0" />
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
-            <title>{% block title %}Uni_App{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+            <title>FESSTVaL Maintenance Protocol</title>
             <script src=" https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
             </script>
@@ -27,14 +30,15 @@
         </div>
         <nav>
             <div class="logo">
-                <h5>FESSTVAL</h5>
+                <h5>FESSTVAl</h5>
             </div>
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
-                <li><a href="{% url 'device-list' %}">Device List</a></li>
                 <li><a href="{% url 'maintenance' %}">Maintenance</a></li>
+                <li><a href="{% url 'measurement' %}">Measurement</a></li>
+                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
                 <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
+                <li><a href="{% url 'device-list' %}">Device List</a></li>
                 {% block Logout_Content %}
                 {% if user.is_authenticated %}
                 <li>
@@ -56,7 +60,7 @@
         {% else %}
         <nav>
             <div class="logo">
-                <h5>Navigation</h5>
+                <h5>FESSTVAL</h5>
             </div>
             <ul class="nav-links">
                 <li><a href="{% url 'login' %}">Login</a></li>
@@ -74,41 +78,41 @@
         {% if user.is_authenticated %}
         <div class="headline">
             <h7>
-                Durchgeführte Wartungen
+                Maintenances
             </h7>
         </div>
         <div class="content">
-            <table>
+            <table class="maintenance-table-content">
                 <tr>
                     <!--<th> Device ID</th>-->
-                    <th> Gerät </th>
-                    <th> Zeitpunkt </th>
-                    <th> Attribut 1 </th>
-                    <th> Attribut 2 </th>
-                    <th> Attribut 3 </th>
+                    <th> Timestamp </th>
+                    <th> Network </th>
+                    <th> On-side? </th>
+                    <th> Condition before </th>
+                    <th> Condition after </th>
                     <th> File </th>
                     <th> Description </th>
                 </tr>
                 {% for item in maintenance %}
                 <tr>
                     <!--<td>
-                    {{ item.device_id }}
+                    {{ item.timestamp }}
                 </td>-->
                     <td>
                         <a href="{% url "maintenance-detail" id=item.id %}">{{ item.devices }}</a>
                     </td>
                     <td>
-                        {{ item.timestamp }}
+                        {{ item.networks }}
                     </td>
                     <td>
-                        {{ item.attribute1 }}
+                        {{ item.choice1 }}
                     </td>
                     <td>
-                        {{ item.attribute2 }}
+                        {{ item.choice2 }}
                     </td>
 
                     <td>
-                        {{ item.attribute3 }}
+                        {{ item.choice3 }}
                     </td>
 
                     <td>

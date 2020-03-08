@@ -1,34 +1,35 @@
 *{
+    height: auto;
+    width: auto;
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
     /* background-color: #F7F7F7; */
 
 }
 
 body{
     background-color: #F0F0F0;
-}
-nav{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 8vh;
-    background-color: rgb(241, 215, 176);
+    width: auto;
+    height: auto;
     font-family: 'Montserrat', sans-serif;
 }
 
-.logo{
 
+.logo{
+    position: relative;
     text-transform: uppercase;
     color: #3a3a3a;
     letter-spacing: 4px;
     font-size: 26px;
     background-color:rgb(241, 215, 176);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .logo h5{
     background-color: rgb(241, 215, 176);
+    font-family: 'Montserrat', sans-serif;
 }
 
 #logo-pic {
@@ -41,29 +42,46 @@ nav{
 
 }
 
+nav{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 12vh;
+    background-color: rgb(241, 215, 176);
+    font-family: 'Montserrat', sans-serif;
+}
+
 .nav-links{
+    position: relative;
     display: flex;
     justify-content: space-around;
     width: 60%;
     background-color: rgb(241, 215, 176);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .nav-links ul{
+    position: relative;
     background-color: rgb(241, 215, 176);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .nav-links a{
+    position: relative;
     color: #3a3a3a;
     text-decoration: none;
-    letter-spacing: 0.2px;
-    font-weight: bold;
-    font-size: 14px;
+    letter-spacing: 0.1px;
+    font-size: 18px;
     background-color: rgb(241, 215, 176);
+    font-family: 'Montserrat', sans-serif;
 }
 
 .nav-links li{
+    position: relative;
     list-style: none;
     background-color: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .headline{
@@ -71,15 +89,43 @@ nav{
     justify-content: center;
     align-items: center;
     font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .content{
+    position: relative;
+    bottom: 20%;
     justify-content: center;
     align-items: center;
     display: flex;
     width: auto;
-    height: 600px;
-    margin: 5%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact{
+    position: absolute;
+    bottom: 30%;
+    right: 32%;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.maintenance_form{
+    position: relative;
+    bottom: -60px;
+}
+
+.measurement_form{
+    position: relative;
+    bottom: -60px;
+}
+
+.device_form{
+    width: 15%;
+    position: relative;
+    bottom: -100px;
 }
 
 .device_form_input{
@@ -89,12 +135,6 @@ nav{
     margin-left: 0%;
 }
 
-.device_form_selection{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-
-}
 
 .device_form_upload{
     display: flex;
@@ -113,10 +153,11 @@ nav{
 }
 
 .startpage {
-  width: 360px;
+  width: auto;
+    height: auto;
   padding: auto;
   margin: auto;
-  font-family: 'Montserrat', sans-serif;
+ font-family: 'Montserrat', sans-serif;
 }
 
 div.Logout-Button{
@@ -164,6 +205,8 @@ p.Greetings{
 }
 
 .headline{
+    position: relative;
+    bottom: -20px;
     display: flex;
     justify-content: center;
     font-size: 40px;
@@ -181,9 +224,30 @@ p.Greetings{
 
 }
 
+.maintenance-table-content{
+    position: relative;
+    bottom: -200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.device-table-content{
+    position: relative;
+    bottom: -200px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .burger{
     display: none;
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .burger div{
@@ -191,6 +255,7 @@ p.Greetings{
     height: 4px;
     background-color: #3a3a3a;
     margin: 5px;
+    font-family: 'Montserrat', sans-serif;
 
 }
 
@@ -211,6 +276,7 @@ table, tr, th{
 table td{
     border: 1.5px solid black;
     width: 20%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -240,12 +306,15 @@ table td{
          width: 20%;
          transform: translateX(100%);
          transition: transform 0.3s ease-in;
+        font-family: 'Montserrat', sans-serif;
     }
     .nav-links li{
         opacity: 100;
+        font-family: 'Montserrat', sans-serif;
     }
     .burger{
         display: block;
+        font-family: 'Montserrat', sans-serif;
     }
 }
 
