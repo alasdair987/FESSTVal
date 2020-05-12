@@ -14,15 +14,21 @@ from django.template import Context, loader
 from bootstrap_datepicker_plus import DateTimePickerInput
 from django.forms import Widget
 from .forms import DeviceForm, MaintenanceForm, MeasurementForm
-from .models import Student, Device, Maintenance
+from .models import Student, Device, Maintenance, Networks
 
 
 def home(request):
     students = Student.first_name
     # professors = Professor.first_name
-    t = loader.get_template('/templates/site.html')
+    t = loader.get_template('site.html')
     c = Context({students})
     return HttpResponse(t.render(c))
+
+
+def load_associated_devices(request):
+    associated_network_id = request.GET.get('networks')
+    associated_devices_view = Device.objects.filter(associated_network_id=associated_network_id).order_by('associated_network__network_name')
+    return render(request, 'associated_device_dropdown_list.html', {'associated_devices_view': associated_devices_view})
 
 
 def device_registration(request):

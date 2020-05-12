@@ -1,5 +1,4 @@
 from django import forms
-import re, pprint, six
 from bootstrap_datepicker_plus import DateTimePickerInput, DatePickerInput, TimePickerInput
 
 from django.forms import SelectDateWidget, MultiWidget, Select, Widget
@@ -43,16 +42,35 @@ class MaintenanceForm(forms.ModelForm):
     class Meta:
         model = Maintenance
         fields = [
+            'person_name',
             'networks',
+            'associated_devices',
             'choice1',
             'choice2',
             'choice3',
+            'choice4',
             'description',
             'timestamp',
             'files']
         widgets = {
-            'timestamp': DateTimePickerInput()
+            'timestamp': DateTimePickerInput(),
+            'person_name': forms.TextInput(attrs={'placeholder': 'Type your name here'}),
+            'description': forms.Textarea(attrs={'placeholder': 'Type your description here'}),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['associated_devices'].queryset = Device.objects.none()
+
+        if 'networks' in self.data:
+            try:
+                associated_network_id = int(self.data.get('networks'))
+                self.fields['associated_devices'].queryset = Device.objects.filter(associated_network_id=associated_network_id).order_by('associated_network__network_name')
+            except (ValueError, TypeError):
+                pass
+        elif self.instance.pk:
+            self.fields['associated_devices'].queryset = self.instance.networks.associated_devices_set.order_by('associated_network__network_name')
+
 
     # def __init__(self, *args, **kwargs):
     #     super(MaintenanceForm, self).__init__(*args, **kwargs)
@@ -85,7 +103,10 @@ class MeasurementForm(forms.ModelForm):
             'files',
         ]
         widgets = {
-            'timestamp': DateTimePickerInput()
+            'timestamp': DateTimePickerInput(),
+            'measurement_name': forms.TextInput(attrs={'placeholder': ''}),
+            'measurement_description': forms.Textarea(attrs={'placeholder': 'Type your description here'}),
+            'location_description': forms.Textarea(attrs={'placeholder': 'Type your description here'})
         }
 
     # def __init__(self, *args, **kwargs):

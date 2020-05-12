@@ -23,8 +23,7 @@
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'maintenance' %}">Maintenance</a></li>
-                <li><a href="{% url 'measurement' %}">Measurement</a></li>
-                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
+                <li><a href="{% url 'measurement' %}">Device</a></li>
                 <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
                 <li><a href="{% url 'device-list' %}">Device List</a></li>
                 {% block Logout_Content %}
@@ -66,7 +65,7 @@
             {% block Logout_Content2 %}
             {% if user.is_authenticated %}
             <div class="headline">
-                <h> Measurement </h>
+                <h> Device Form </h>
             </div>
 
             {% else %}

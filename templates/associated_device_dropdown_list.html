@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for associated_devices in associated_devices_view %}
+<option value="{{ associated_devices.pk }}">{{ associated_devices.device_name }}</option>
+{% endfor %}

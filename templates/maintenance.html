@@ -29,8 +29,7 @@
             <ul class="nav-links">
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'maintenance' %}">Maintenance</a></li>
-                <li><a href="{% url 'measurement' %}">Measurement</a></li>
-                <li><a href="{% url 'device_registration' %}">Device Registration</a></li>
+                <li><a href="{% url 'measurement' %}">Device</a></li>
                 <li><a href="{% url 'maintenance-list' %}">Maintenance List</a></li>
                 <li><a href="{% url 'device-list' %}">Device List</a></li>
                 {% block Logout_Content %}
@@ -73,7 +72,7 @@
             {% block Logout_Content2 %}
             {% if user.is_authenticated %}
             <div class="headline">
-                <h> Maintenance </h>
+                <h> Maintenance Form </h>
             </div>
 
             {% else %}
@@ -88,7 +87,7 @@
         {% block Authenticat2 %}
         {% if user.is_authenticated %}
         <div class="content">
-            <form class="maintenance_form" method="POST" action='' enctype='multipart/form-data'>
+            <form method="POST" class="maintenance_form" id="maintenanceForm" data-networks-url="{% url 'ajax_load_associated_devices' %}" enctype='multipart/form-data' novalidate>
                 {% csrf_token %}
                 {{ maintenance_form.media }}
                 {% bootstrap_form maintenance_form %}
@@ -101,6 +100,26 @@
                         <input id="device_type" type="text">-->
 
             </form>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            $("#id_networks").change(function () {
+                var url = $("#maintenanceForm").attr("data-networks-url");
+                var network_name = $(this).val();
+
+                $.ajax({
+                    url: url,
+                    data: {
+                        'networks': network_name
+                    },
+                    success: function (data) {
+                        $("#id_associated_devices").html(data);
+                    }
+                });
+                
+            });
+        </script>
+
         </div>
         {% endif %}
         {% endblock %}

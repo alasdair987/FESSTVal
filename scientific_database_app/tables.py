@@ -13,5 +13,5 @@ class MaintenanceTable(tables.Table):
     class Meta:
         model = Maintenance
         template_name = "django_tables2/bootstrap4.html"
-        fields = ['id', 'networks', 'choice1', 'choice2', 'choice3', 'files', 'timestamp']
+        fields = ['id', 'networks', 'associated_devices', 'choice1', 'choice2', 'choice3', 'choice4', 'files', 'timestamp']
         attrs = {"class": "paleblue"}

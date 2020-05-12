@@ -29,7 +29,7 @@ admin.site.register(Professor, Professor_Admin)
 class Device_Admin(ImportExportModelAdmin):
     date_hierarchy = 'register_date'
     model = Device
-    list_display = ('device_name', 'device_type', 'register_date', 'device_user')
+    list_display = ('device_name', 'device_type', 'associated_network', 'register_date', 'device_user')
 
     pass
 
@@ -39,8 +39,8 @@ admin.site.register(Device, Device_Admin)
 
 class Maintenance_Admin(ImportExportModelAdmin):
     model = Maintenance
-    list_display = ('networks', 'description',
-                    'timestamp', 'choice1', 'choice2', 'choice3')
+    list_display = ('person_name', 'networks', 'associated_devices', 'description',
+                    'timestamp', 'choice1', 'choice2', 'choice3', 'choice4')
 
     pass
 
