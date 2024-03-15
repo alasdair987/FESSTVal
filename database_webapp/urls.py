@@ -40,5 +40,6 @@ urlpatterns = [
     path('maintenance-list/', views.MaintenanceList, name='maintenance-list'),
     path(r'^maintenance-detail/(?P<id>\d+)/$', views.MaintenanceDetail, name='maintenance-detail'),
     path('account/', include('django.contrib.auth.urls'), name='user_login'),
+    path('ajax/load-associated-devices/', views.load_associated_devices, name='ajax_load_associated_devices'),
 
 ]

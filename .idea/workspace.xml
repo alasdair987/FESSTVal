@@ -1,29 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="644b71d6-c153-4127-ae45-7a81e662c667" name="Default Changelist" comment="" />
+    <list default="true" id="644b71d6-c153-4127-ae45-7a81e662c667" name="Default Changelist" comment="-Model, AdminModel, View,  Form, URL und HTML für  Measurement hinzugefügt&#10;-Bootstrap4 Paket + django-bootstrap4 Paket installiert für die Forms und DatePicker (müssen im Settings.py zu INSTALLED_APPS hinzugefügt werden)&#10;-django-bootstrap-datepicker-plus Paket installiert (muss im Settings.py zu INSTALLED_APPS hinzugefügt werden)&#10;&#10;Durch die angepassten Felder der Models könnte die Datenbank nen Integritäts Error werfen. Vorher alle Instanzen der angepassten Models aus der Admin Oberfläche schmeißen. Wenn trotzdem ein Integritäts error kommt: alle Migrate Files aus dem Migrate Ordner löschen bis auf die 0001.">
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/_version.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/bootstrap.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/components.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/exceptions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/renderers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/statics/js/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/bootstrap4/bootstrap4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/bootstrap4/field_errors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/bootstrap4/field_help_text.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/bootstrap4/form_errors.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/bootstrap4/messages.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/bootstrap4/pagination.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/bootstrap4/widgets/radio_select_button_group.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/forms/checkbox.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/forms/input.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/forms/select.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templates/forms/textarea.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/templatetags/bootstrap4.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/text.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap4/widgets.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/_base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/_compatibility.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/_helpers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/static/bootstrap_datepicker_plus/css/datepicker-widget.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/static/bootstrap_datepicker_plus/js/datepicker-widget.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/templates/bootstrap_datepicker_plus/date-picker.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/templates/bootstrap_datepicker_plus/input.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bootstrap_datepicker_plus/templates/bootstrap_datepicker_plus/time-picker.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/booleancolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/checkboxcolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/datecolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/datetimecolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/emailcolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/filecolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/jsoncolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/linkcolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/manytomanycolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/templatecolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/timecolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/columns/urlcolumn.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/export/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/export/export.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/export/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/cs/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/cs/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/de/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/de/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/el/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/el/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/en/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/en/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/es/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/es/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/fr/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/fr/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/hu/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/hu/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/it/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/it/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/nb/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/nb/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/nl/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/nl/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/pl/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/pl/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/pt_BR/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/pt_BR/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/pt_PT/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/pt_PT/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/ru/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/ru/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/sv/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/sv/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/uk/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/uk/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/zh_Hans/LC_MESSAGES/django.mo" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/locale/zh_Hans/LC_MESSAGES/django.po" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/paginators.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/rows.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/css/screen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/arrow-active-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/arrow-active-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/arrow-inactive-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/arrow-inactive-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/false.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/header-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/missing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/pagination-bg.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/static/django_tables2/themes/paleblue/img/true.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/tables.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/templates/django_tables2/bootstrap-responsive.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/templates/django_tables2/bootstrap.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/templates/django_tables2/bootstrap4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/templates/django_tables2/semantic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/templates/django_tables2/table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/templatetags/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/templatetags/django_tables2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/django_tables2/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/database_webapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/database_webapp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_webapp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_webapp/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_webapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_webapp/urls.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="FESSTVaL" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1VCxZZ46Kr6lrDAzUp2WEO5wj4e" />
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -33,13 +180,17 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/login" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/static/html" />
+      <recent name="$PROJECT_DIR$/templates/static/css" />
+      <recent name="$PROJECT_DIR$/templates/registration" />
+      <recent name="$PROJECT_DIR$/templates/login" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -64,7 +215,7 @@
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
@@ -90,10 +241,70 @@
       <option name="presentableId" value="Default" />
       <updated>1576770933698</updated>
       <workItem from="1576770961634" duration="4736000" />
+      <workItem from="1583409408988" duration="18469000" />
+      <workItem from="1583514303079" duration="5556000" />
+      <workItem from="1583519904382" duration="222000" />
+      <workItem from="1583520540480" duration="113000" />
+      <workItem from="1583520766119" duration="54463000" />
+      <workItem from="1587727570509" duration="2567000" />
+      <workItem from="1588164972351" duration="7765000" />
+      <workItem from="1588580510759" duration="4454000" />
+      <workItem from="1588621879676" duration="3194000" />
+      <workItem from="1588936718188" duration="8469000" />
+      <workItem from="1589276487602" duration="1419000" />
     </task>
+    <task id="LOCAL-00001" summary="-Model Networks hinzugefügt&#10;-Felder von Maintenance und Maintenance-Form angepasst">
+      <created>1583514878287</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1583514878287</updated>
+    </task>
+    <task id="LOCAL-00002" summary="-Model, AdminModel, View,  Form, URL und HTML für  Measurement hinzugefügt&#10;-Bootstrap4 Paket + django-bootstrap4 Paket installiert für die Forms und DatePicker (müssen im Settings.py zu INSTALLED_APPS hinzugefügt werden)&#10;-django-bootstrap-datepicker-plus Paket installiert (muss im Settings.py zu INSTALLED_APPS hinzugefügt werden)&#10;&#10;Durch die angepassten Felder der Models könnte die Datenbank nen Integritäts Error werfen. Vorher alle Instanzen der angepassten Models aus der Admin Oberfläche schmeißen. Wenn trotzdem ein Integritäts error kommt: alle Migrate Files aus dem Migrate Ordner löschen bis auf die 0001.">
+      <created>1583669149481</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1583669149481</updated>
+    </task>
+    <task id="LOCAL-00003" summary="-Zusätzlich noch django-tables2 Paket installiert für die bessere Darstellung und Sortierbarkeit der Tabellen (Paket muss ebenfalls installiert und in INSTALLED_APPS hinzugefügt werden)&#10;-Datepicker in die Forms eingebunden, so dass die Timestamps einfach gesetzt werden können">
+      <created>1583696498471</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1583696498471</updated>
+    </task>
+    <task id="LOCAL-00004" summary="1) Die Device Registration Seite wurde aus dem Frontend entfernt (URL ist aber noch erreichbar)&#10;2) Bei der Maintenance Form wurden für Networks und Devices voneinander abhängige Dropdown Menus implementiert (url.py wurde dafür verändert, das pushe ich aber jetzt nicht mit diesem Commit, das wäre vielleicht besser händisch)&#10;3) Das Feld &quot;Homogeneity&quot; wurde in die Maintenance Form eingefügt&#10;4) Die weiteren Netzwerke die gewünscht waren hatte ich im Admin schon hinzugefügt, wir müssen aber bevor wir die Sachen aufm Server einbinden einmal alle Datenbanken Tables löschen, ansonsten kommt es zu integritäts errors&#10;5) Beim Klicken in Freitext bleibt der Defaultwert zwar drin, aber muss jetzt nicht mehr händisch rausgelöscht werden">
+      <created>1589277291135</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589277291135</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="-Model Networks hinzugefügt&#10;-Felder von Maintenance und Maintenance-Form angepasst" />
+    <MESSAGE value="-Model, AdminModel, View,  Form, URL und HTML für  Measurement hinzugefügt&#10;-Bootstrap4 Paket + django-bootstrap4 Paket installiert für die Forms und DatePicker (müssen im Settings.py zu INSTALLED_APPS hinzugefügt werden)&#10;-django-bootstrap-datepicker-plus Paket installiert (muss im Settings.py zu INSTALLED_APPS hinzugefügt werden)&#10;&#10;Durch die angepassten Felder der Models könnte die Datenbank nen Integritäts Error werfen. Vorher alle Instanzen der angepassten Models aus der Admin Oberfläche schmeißen. Wenn trotzdem ein Integritäts error kommt: alle Migrate Files aus dem Migrate Ordner löschen bis auf die 0001." />
+    <MESSAGE value="-Zusätzlich noch django-tables2 Paket installiert für die bessere Darstellung und Sortierbarkeit der Tabellen (Paket muss ebenfalls installiert und in INSTALLED_APPS hinzugefügt werden)&#10;-Datepicker in die Forms eingebunden, so dass die Timestamps einfach gesetzt werden können" />
+    <MESSAGE value="1) Die Device Registration Seite wurde aus dem Frontend entfernt (URL ist aber noch erreichbar)&#10;2) Bei der Maintenance Form wurden für Networks und Devices voneinander abhängige Dropdown Menus implementiert (url.py wurde dafür verändert, das pushe ich aber jetzt nicht mit diesem Commit, das wäre vielleicht besser händisch)&#10;3) Das Feld &quot;Homogeneity&quot; wurde in die Maintenance Form eingefügt&#10;4) Die weiteren Netzwerke die gewünscht waren hatte ich im Admin schon hinzugefügt, wir müssen aber bevor wir die Sachen aufm Server einbinden einmal alle Datenbanken Tables löschen, ansonsten kommt es zu integritäts errors&#10;5) Beim Klicken in Freitext bleibt der Defaultwert zwar drin, aber muss jetzt nicht mehr händisch rausgelöscht werden" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) Die Device Registration Seite wurde aus dem Frontend entfernt (URL ist aber noch erreichbar)&#10;2) Bei der Maintenance Form wurden für Networks und Devices voneinander abhängige Dropdown Menus implementiert (url.py wurde dafür verändert, das pushe ich aber jetzt nicht mit diesem Commit, das wäre vielleicht besser händisch)&#10;3) Das Feld &quot;Homogeneity&quot; wurde in die Maintenance Form eingefügt&#10;4) Die weiteren Netzwerke die gewünscht waren hatte ich im Admin schon hinzugefügt, wir müssen aber bevor wir die Sachen aufm Server einbinden einmal alle Datenbanken Tables löschen, ansonsten kommt es zu integritäts errors&#10;5) Beim Klicken in Freitext bleibt der Defaultwert zwar drin, aber muss jetzt nicht mehr händisch rausgelöscht werden" />
   </component>
 </project>
